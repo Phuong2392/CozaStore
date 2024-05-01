@@ -1,10 +1,12 @@
 package com.coza.entity;
 
+import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
@@ -15,6 +17,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "Products")
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Products implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +29,7 @@ public class Products implements Serializable {
     int quantity;
     String image;
     @ManyToOne
-    @JoinColumn(name = "cateid", referencedColumnName = "cateid")
+    @JoinColumn(name = "cateid", referencedColumnName = "id")
     private Categories categories;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)

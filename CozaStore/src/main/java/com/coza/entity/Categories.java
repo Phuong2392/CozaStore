@@ -1,10 +1,12 @@
 package com.coza.entity;
 
+import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
@@ -14,6 +16,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "Categories")
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Categories implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

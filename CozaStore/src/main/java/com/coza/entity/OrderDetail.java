@@ -1,10 +1,12 @@
 package com.coza.entity;
 
+import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
 
-import javax.persistence.*;
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
@@ -13,6 +15,7 @@ import java.io.Serializable;
 @Data
 @Entity
 @Table(name = "OrderDetails")
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class OrderDetail implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
